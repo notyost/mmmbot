@@ -1,5 +1,5 @@
 # Description:
-#   build an ansible playbook from github, put it on s3
+#   build a docker image and push it to ecr
 #
 # Configuration:
 #   CREDSTASH_REF_GHTOKEN=mmmbot.github_token
