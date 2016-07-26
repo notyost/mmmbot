@@ -6,7 +6,7 @@
 #   CREDSTASH_REGION=us-west-2
 #
 # Commands:
-#   hubot build-pb [example-tag] <https://github.com/mGageTechOps/example-playbook> <someaccountid.dkr.ecr.us-west-2.amazonaws.com/somerepo> - build a docker imagefrom a github repo and push it to ecr
+#   hubot build-docker [example-tag] <https://github.com/mGageTechOps/example-playbook> <someaccountid.dkr.ecr.us-west-2.amazonaws.com/somerepo> - build a docker imagefrom a github repo and push it to ecr
 #
 
 docker_build = (robot, tag, url, ecr_path, res) ->
