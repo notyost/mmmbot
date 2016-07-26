@@ -1,7 +1,7 @@
 FROM alpine:3.4
 RUN apk update &&\
     apk upgrade &&\
-    apk add ansible git nodejs py-pip &&\
+    apk add ansible docker git nodejs py-pip &&\
     npm install -g yo generator-hubot &&\
     adduser -h /mmmbot -D hubot hubot &&\
     pip install awscli boto boto3 credstash
