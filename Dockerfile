@@ -14,4 +14,5 @@ RUN npm install --save https://github.com/mGageTechOps/hubot-s3-brain/tarball/ma
 ADD external-scripts.json .
 ADD build-pb.coffee ./scripts/build-pb.coffee
 ADD run-pb.coffee ./scripts/run-pb.coffee
+ADD build-docker.coffee ./scripts/build-docker.coffee
 CMD HUBOT_SLACK_TOKEN=$(credstash -r ${CREDSTASH_REGION} get -n ${CREDSTASH_REF_SLACKTOKEN}) bin/hubot --adapter slack
