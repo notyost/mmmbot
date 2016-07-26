@@ -16,7 +16,7 @@ docker_build = (robot, tag, url, ecr_path, res) ->
   script = "git clone --branch #{tag} #{url}"
   script += " && cd #{dir_path} && git checkout #{tag} && eval $(aws --region #{process.env.CREDSTASH_REGION} ecr get-login)"
   script += " && docker build --force-rm=true -t #{ecr_path} . && docker push #{ecr_path} && docker rmi -f #{ecr_path}"
-  script += " && cd .. && rm #{dir_path}.tgz && rm -rf #{dir_path}"
+  script += " && cd .. && rm -rf #{dir_path}"
   shell = require('shelljs')
   shell.exec script, {async:true}, (code, output) ->
     if code != 0
