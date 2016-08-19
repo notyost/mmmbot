@@ -3,7 +3,7 @@ RUN apk update &&\
     apk upgrade &&\
     apk add ansible docker git nodejs py-pip &&\
     npm install -g yo generator-hubot &&\
-    adduser -h /mmmbot -D hubot hubot &&\
+    adduser -u 497 -h /mmmbot -D hubot hubot &&\
     pip install awscli boto boto3 credstash
 USER hubot
 WORKDIR /mmmbot
