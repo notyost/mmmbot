@@ -15,4 +15,7 @@ ADD external-scripts.json .
 ADD build-pb.coffee ./scripts/build-pb.coffee
 ADD run-pb.coffee ./scripts/run-pb.coffee
 ADD build-docker.coffee ./scripts/build-docker.coffee
-CMD HUBOT_SLACK_TOKEN=$(credstash -r ${CREDSTASH_REGION} get -n ${CREDSTASH_REF_SLACKTOKEN}) bin/hubot --adapter slack
+CMD HUBOT_SLACK_TOKEN=$(credstash -r ${CREDSTASH_REGION} get -n ${CREDSTASH_REF_SLACKTOKEN}) \
+    HUBOT_GOOGLE_CSE_ID=$(credstash -r ${CREDSTASH_REGION} get -n ${CREDSTASH_REF_CSE_ID}) \
+    HUBOT_GOOGLE_CSE_KEY=$(credstash -r ${CREDSTASH_REGION} get -n ${CREDSTASH_REF_CSE_KEY}) \
+    bin/hubot --adapter slack
