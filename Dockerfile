@@ -10,10 +10,10 @@ WORKDIR /mmmbot
 RUN yo hubot --owner="mmmbot <mmmbot42@gmail.com>" --name="mmmbot" --description="like but also unlike, the band" --adapter slack --defaults
 RUN npm install --save https://github.com/mGageTechOps/hubot-s3-brain/tarball/master &&\
     npm install hubot-jenkins-enhanced --save &&\
-    npm install shelljs --save 
+    npm install shelljs --save &&\
+    npm install hubot-alias --save
 ADD external-scripts.json .
 ADD build-pb.coffee ./scripts/build-pb.coffee
-ADD run-pb.coffee ./scripts/run-pb.coffee
 ADD build-docker.coffee ./scripts/build-docker.coffee
 CMD HUBOT_SLACK_TOKEN=$(credstash -r ${CREDSTASH_REGION} get -n ${CREDSTASH_REF_SLACKTOKEN}) \
     HUBOT_GOOGLE_CSE_ID=$(credstash -r ${CREDSTASH_REGION} get -n ${CREDSTASH_REF_CSE_ID}) \
