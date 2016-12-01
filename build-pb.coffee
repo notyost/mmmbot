@@ -30,7 +30,8 @@ build_upload = (robot, tag, url, s3_path, res) ->
   ]
   shell.exec script.join('&& '), {async:true}, (code, output) ->
     if code != 0
-      res.reply "Something went wrong -- I handled this situation by not handling it...¯\\_(ツ)_/¯"
+      res.reply "Something went wrong -- check the logs...\\_(ツ)_/, attempting cleanup"
+      shell.exec "rm #{dir_path}.tgz ; rm -rf #{dir_path}", {async:true}
     else
       if robot.adapterName == "slack"
         res.send {
